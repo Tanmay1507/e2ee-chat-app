@@ -12,6 +12,10 @@ import {
   exportKeyPair,
   importKeyPair,
   EncryptedPayload,
+  generateGroupKey,
+  encryptGroupKey,
+  decryptGroupKey,
+  importGroupKey,
 } from '@/lib/crypto';
 
 export interface Message {
@@ -32,20 +36,32 @@ export interface User {
   role?: string;
 }
 
-const SOCKET_SERVER = 'http://localhost:4000';
+export interface Group {
+  id: string;
+  name: string;
+  creatorUsername: string;
+  encryptedGroupKey?: string; // Encrypted for the current user
+  decryptedGroupKey?: CryptoKey; // In-memory decrypted key
+}
+
+const SOCKET_SERVER = process.env.NEXT_PUBLIC_SOCKET_SERVER || 'http://localhost:4000';
 
 export const useChat = (username: string | null, selectedUserUsername: string | null) => {
+  console.log(`🎣 [useChat] Called with username: ${username}, selected: ${selectedUserUsername}`);
   const [socket, setSocket] = useState<Socket | null>(null);
   const [users, setUsers] = useState<User[]>([]);
+  const [groups, setGroups] = useState<Group[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isConnected, setIsConnected] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [securityWarning, setSecurityWarning] = useState<string | null>(null);
   const [unreadCounts, setUnreadCounts] = useState<Record<string, number>>({});
+  const [typingUsers, setTypingUsers] = useState<Record<string, boolean>>({});
   
   const keyPairRef = useRef<CryptoKeyPair | null>(null);
   const sharedKeysRef = useRef<Record<string, CryptoKey>>({});
   const usersRef = useRef<User[]>([]);
+  const groupsRef = useRef<Group[]>([]);
   const activeUserRef = useRef<string | null>(null);
 
   // Request notification permission on mount
@@ -91,7 +107,6 @@ export const useChat = (username: string | null, selectedUserUsername: string | 
           usersRef.current = filtered;
           
           // 2. Load or Generate local keys
-          // --- KEY LOADING ---
           let keys: CryptoKeyPair;
           const savedKeys = localStorage.getItem(`keys_${normalizedUsername}`);
           
@@ -135,58 +150,85 @@ export const useChat = (username: string | null, selectedUserUsername: string | 
           } catch (testErr) {
             console.error('🚨 CRYPTO SELF-TEST FAILED! Encryption is broken:', testErr);
           }
-          // ------------------------
+
+          // 3. Fetch groups and decrypt keys
+          try {
+            console.log('📥 Fetching groups from server...');
+            const groupRes = await fetch('/api/groups');
+            if (groupRes.ok) {
+              const groupData: Group[] = await groupRes.json();
+              console.log(`📦 Found ${groupData.length} groups.`);
+              
+              // Set groups immediately so they show up in the UI
+              setGroups(groupData);
+              groupsRef.current = groupData;
+
+              // Decrypt group keys in the background
+              for (const group of groupData) {
+                if (group.encryptedGroupKey) {
+                  try {
+                    const creator = usersRef.current.find(u => u.username.trim().toLowerCase() === group.creatorUsername.toLowerCase());
+                    let creatorPubKeyBase64 = creator?.publicKey;
+                    
+                    if (!creatorPubKeyBase64 && group.creatorUsername.toLowerCase() === normalizedUsername) {
+                      creatorPubKeyBase64 = pubKeyBase64;
+                    }
+
+                    if (creatorPubKeyBase64) {
+                      const creatorPubKey = await importPublicKey(creatorPubKeyBase64);
+                      const payload = JSON.parse(group.encryptedGroupKey);
+                      group.decryptedGroupKey = await decryptGroupKey(payload, creatorPubKey, keyPairRef.current!.privateKey);
+                      console.log(`🔐 Decrypted group key for: ${group.name}`);
+                    } else {
+                      console.warn(`⚠️ Could not find public key for group creator: ${group.creatorUsername}`);
+                    }
+                  } catch (e) {
+                    console.error(`❌ Failed to decrypt key for group ${group.name}:`, e);
+                  }
+                }
+              }
+              // Final sync to ensure all decrypted keys are ready in state
+              setGroups([...groupData]);
+              groupsRef.current = [...groupData];
+            }
+          } catch (e) {
+            console.error('Failed to fetch groups:', e);
+          }
 
           setIsReady(true);
 
-          // 3. ONLY NOW Connect directly to the backend
+          // 4. Connect to socket
           const token = localStorage.getItem('chat_token');
-          const newSocket = io('http://localhost:4000', {
+          const newSocket = io(SOCKET_SERVER, {
             transports: ['websocket', 'polling'],
-            withCredentials: true, // Required to send the JWT cookie (backup)
-            auth: { token } // Primary authentication method
+            withCredentials: true,
+            auth: { token }
           });
 
           setSocket(newSocket);
           currentSocket = newSocket;
 
           newSocket.on('connect', async () => {
-            // --- CRYPTO SELF-TEST ---
-            try {
-              const testSharedKey = await deriveSharedKey(keyPairRef.current!.privateKey, keyPairRef.current!.publicKey);
-              console.warn('✅ CRYPTO SELF-TEST PASSED: Local KeyPair is healthy.');
-            } catch (testErr) {
-              console.error('❌ CRYPTO SELF-TEST FAILED: Your local keys are mismatched or corrupt!', testErr);
-              console.warn('🔄 FORCING SESSION RESET to repair crypto state...');
-              localStorage.clear();
-              document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-              window.location.reload();
-              return;
-            }
-
             console.log('Socket connected, joining...');
             setIsConnected(true);
-            // No need to send username or publicKey, server gets it from JWT!
             newSocket.emit('join');
+            // Join all group rooms
+            groupsRef.current.forEach(g => {
+              console.log(`🔗 Joining group room: ${g.name} (${g.id})`);
+              newSocket.emit('join-group', { groupId: g.id });
+            });
           });
 
           newSocket.on('connect_error', (err) => {
             console.error('Socket connection error:', err.message);
             if (err.message.includes('Authentication error')) {
-              // Redirect to login if authentication fails
-              console.warn('Authentication failed, redirecting to login...');
               window.location.href = '/login';
             }
           });
 
           newSocket.on('user-list', (userList: User[]) => {
             const filtered = userList.filter(u => u.username.trim().toLowerCase() !== normalizedUsername);
-            
-            // Clear all cached shared keys whenever the list updates
-            // This is the safest way to ensure we always use the latest public keys
             sharedKeysRef.current = {};
-            console.log('🔄 User list updated. Shared key cache cleared for all peers.');
-
             setUsers(filtered);
             usersRef.current = filtered;
           });
@@ -320,7 +362,10 @@ export const useChat = (username: string | null, selectedUserUsername: string | 
               const isActive = peerKey === activeUserRef.current?.toLowerCase();
               
               // Store message in state (UI filters it by active user)
-              setMessages((prev) => [...prev, newMessage]);
+              setMessages((prev) => {
+                if (prev.some(m => m.id === newMessage.id)) return prev;
+                return [...prev, newMessage];
+              });
 
               // Handle Notification and Unread Count if background
               if (!isActive) {
@@ -345,6 +390,52 @@ export const useChat = (username: string | null, selectedUserUsername: string | 
             }
           });
 
+          newSocket.on('user-typing', (data: { from: string, isTyping: boolean }) => {
+            setTypingUsers((prev) => ({
+              ...prev,
+              [data.from.toLowerCase()]: data.isTyping
+            }));
+          });
+
+          newSocket.on('new-group-message', async (data: { id: string, groupId: string, from: string, fromName: string, content: EncryptedPayload, timestamp: any }) => {
+            console.log('📩 New group message incoming in:', data.groupId);
+            
+            try {
+              const group = groupsRef.current.find(g => g.id === data.groupId);
+              if (!group || !group.decryptedGroupKey) {
+                console.warn('❓ Group key not available for:', data.groupId);
+                return;
+              }
+
+              const decrypted = await decryptMessage(group.decryptedGroupKey, data.content);
+
+              const newMessage: Message = {
+                id: data.id || Math.random().toString(36).substring(7),
+                from: data.from,
+                fromName: data.fromName || data.from,
+                to: data.groupId, // Using groupId as 'to' for group messages
+                content: decrypted,
+                timestamp: new Date(data.timestamp).getTime(),
+              };
+
+              setMessages((prev) => {
+                if (prev.some(m => m.id === newMessage.id)) return prev;
+                return [...prev, newMessage];
+              });
+              console.log('✅ Group message added to state:', newMessage.id);
+              
+              // Handle Notification
+              if (data.groupId !== activeUserRef.current && Notification.permission === 'granted') {
+                new Notification(`New group message in ${group.name}`, {
+                  body: `${data.fromName}: ${decrypted}`,
+                  icon: '/favicon.ico',
+                });
+              }
+            } catch (err) {
+              console.error('❌ Group decryption failed for message:', data.id, err);
+            }
+          });
+
           newSocket.on('disconnect', () => {
             setIsConnected(false);
           });
@@ -362,6 +453,65 @@ export const useChat = (username: string | null, selectedUserUsername: string | 
       }
     };
   }, [username]);
+  
+  useEffect(() => {
+    console.log(`🎬 [useEffect] Triggered for group history. Selected: ${selectedUserUsername} (Type: ${typeof selectedUserUsername})`);
+    const fetchGroupHistory = async () => {
+      console.log(`🔍 [EFFECT] fetchGroupHistory triggered for: ${selectedUserUsername}. Total groups: ${groups.length}`);
+      if (!selectedUserUsername || !groups.length) return;
+      
+      const group = groupsRef.current.find(g => g.id.toLowerCase() === selectedUserUsername?.toLowerCase());
+      if (!group) {
+        console.warn(`🔍 Group ${selectedUserUsername} not found in groups list yet.`);
+        return;
+      }
+      if (!group.decryptedGroupKey) {
+        console.warn(`🔑 Decryption key for group ${group.name} is missing. Cannot fetch history.`);
+        return;
+      }
+
+      try {
+        const url = `/api/groups/${group.id}/messages`;
+        console.log(`📥 Fetching group history from: ${url}`);
+        const res = await fetch(url);
+        if (res.ok) {
+          const history = await res.json();
+          console.log(`📦 Received ${history.length} encrypted messages from server for group ${group.name}`);
+          const decryptedHistory: Message[] = [];
+
+          for (const msg of history) {
+            try {
+              console.log(`🔓 Decrypting history msg: ${msg.id}...`);
+              const decrypted = await decryptMessage(group.decryptedGroupKey, msg.content);
+              decryptedHistory.push({
+                id: msg.id,
+                from: msg.fromUsername,
+                fromName: msg.fromUsername,
+                to: group.id,
+                content: decrypted,
+                timestamp: new Date(msg.timestamp).getTime(),
+              });
+            } catch (e) {
+              console.error('Failed to decrypt group history message:', e);
+            }
+          }
+          setMessages(prev => {
+            // Merge and deduplicate (by ID)
+            const combined = [...prev, ...decryptedHistory];
+            const unique = combined.filter((v, i, a) => a.findIndex(t => t.id === v.id) === i);
+            console.log(`📊 Updated messages state. Now has ${unique.length} total messages.`);
+            return unique;
+          });
+        } else {
+          console.error(`❌ History fetch failed with status ${res.status}: ${res.statusText}`);
+        }
+      } catch (e) {
+        console.error('Failed to fetch group history:', e);
+      }
+    };
+
+    fetchGroupHistory();
+  }, [selectedUserUsername, groups]);
 
   // sendMessage function
   const sendMessage = useCallback(async (toUsername: string, text: string) => {
@@ -452,15 +602,128 @@ export const useChat = (username: string | null, selectedUserUsername: string | 
     return fingerprints[peerUsername.toLowerCase()] || 'IDLE';
   };
 
+  const sendTypingStatus = useCallback((to: string, isTyping: boolean) => {
+    if (socket) {
+      socket.emit('typing', { to, isTyping });
+    }
+  }, [socket]);
+
+  // --- GROUP ACTIONS ---
+
+  const createGroup = async (name: string, memberUsernames: string[]) => {
+    if (!keyPairRef.current || !username) return;
+
+    try {
+      // 1. Generate a new Group Key (AES)
+      const groupKey = await generateGroupKey();
+      
+      // 2. Encrypt the Group Key for each member (including self)
+      const normalizedMe = username.trim().toLowerCase();
+      const membersToEncrypt = [...new Set([...memberUsernames.map(u => u.trim().toLowerCase()), normalizedMe])];
+      const encryptedMemberKeys = [];
+
+      for (const mUsername of membersToEncrypt) {
+        const normUser = mUsername.trim().toLowerCase();
+        let mPubKeyBase64;
+
+        if (normUser === username.trim().toLowerCase()) {
+          mPubKeyBase64 = await exportPublicKey(keyPairRef.current.publicKey);
+        } else {
+          const userObj = usersRef.current.find(u => u.username.trim().toLowerCase() === normUser);
+          mPubKeyBase64 = userObj?.publicKey;
+        }
+
+        if (mPubKeyBase64) {
+          const mPubKey = await importPublicKey(mPubKeyBase64);
+          const encryptedKey = await encryptGroupKey(groupKey, mPubKey, keyPairRef.current.privateKey);
+          encryptedMemberKeys.push({
+            username: normUser,
+            encryptedGroupKey: JSON.stringify(encryptedKey)
+          });
+        }
+      }
+
+      // 3. Send to API
+      const res = await fetch('/api/groups', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          members: encryptedMemberKeys
+        })
+      });
+
+      if (res.ok) {
+        const newGroup = await res.json();
+        // Attach the decrypted key so the creator can use it immediately
+        newGroup.decryptedGroupKey = groupKey;
+        setGroups(prev => {
+          const next = [...prev, newGroup];
+          groupsRef.current = next;
+          return next;
+        });
+        
+        // Join the socket room
+        if (socket) {
+          socket.emit('join-group', { groupId: newGroup.id });
+        }
+        
+        return newGroup;
+      }
+    } catch (err) {
+      console.error('Failed to create group:', err);
+    }
+  };
+
+  const sendGroupMessage = useCallback(async (groupId: string, text: string) => {
+    if (!socket || !username) return;
+
+    try {
+      const group = groupsRef.current.find(g => g.id === groupId);
+      if (!group || !group.decryptedGroupKey) {
+        console.error('Group key not found for sending message');
+        return;
+      }
+
+      const encrypted = await encryptMessage(group.decryptedGroupKey, text);
+      
+      socket.emit('send-group-message', {
+        groupId,
+        content: encrypted
+      });
+
+      // Optimistic update: Add to state immediately so it doesn't "vanish"
+      setMessages((prev) => {
+        const newMessage: Message = {
+          id: `temp-${Date.now()}`,
+          from: username.trim().toLowerCase(),
+          fromName: 'You',
+          to: groupId,
+          content: text,
+          timestamp: Date.now(),
+          type: 'group'
+        };
+        return [...prev, newMessage];
+      });
+    } catch (err) {
+      console.error('Failed to send group message:', err);
+    }
+  }, [socket, username, groups]);
+
   return { 
     users, 
+    groups,
     messages, 
     sendMessage, 
+    sendGroupMessage,
+    createGroup,
+    sendTypingStatus,
     isConnected, 
     isReady, 
     socketId: socket?.id, 
     getSharedKeyFingerprint, 
     securityWarning,
-    unreadCounts
+    unreadCounts,
+    typingUsers
   };
 };

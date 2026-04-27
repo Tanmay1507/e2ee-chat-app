@@ -1,6 +1,7 @@
 import { Server, Socket } from 'socket.io';
 import User from '../models/User';
 import Message from '../models/Message';
+import GroupMessage from '../models/GroupMessage';
 import logger from '../utils/logger';
 import { Op } from 'sequelize';
 
@@ -162,6 +163,45 @@ export const handleConnection = (io: Server, socket: Socket) => {
       }
     } catch (err) {
       logger.error('Error saving message:', err);
+    }
+  });
+
+  socket.on('typing', (data: { to: string, isTyping: boolean }) => {
+    const recipient = Object.values(onlineUsers).find(u => u.username.toLowerCase() === data.to.toLowerCase());
+    if (recipient) {
+      io.to(recipient.id).emit('user-typing', { from: authUser.username, isTyping: data.isTyping });
+    }
+  });
+
+  // --- GROUP MESSAGING ---
+  socket.on('join-group', (data: { groupId: string }) => {
+    logger.info(`👥 User ${authUser.username} joined group room: ${data.groupId}`);
+    socket.join(data.groupId);
+  });
+
+  socket.on('send-group-message', async (data: { groupId: string, content: any }) => {
+    logger.info(`📩 Group message from ${authUser.username} to group ${data.groupId}`);
+    try {
+      const fromUsername = authUser.username.trim().toLowerCase();
+      
+      const savedMsg = await GroupMessage.create({
+        groupId: data.groupId,
+        fromUsername: fromUsername,
+        content: JSON.stringify(data.content),
+        timestamp: new Date()
+      });
+
+      // Relay to everyone in the group room
+      io.to(data.groupId).emit('new-group-message', {
+        id: savedMsg.id,
+        groupId: data.groupId,
+        from: fromUsername,
+        fromName: fromUsername,
+        content: data.content,
+        timestamp: savedMsg.timestamp
+      });
+    } catch (err) {
+      logger.error('Error saving group message:', err);
     }
   });
 

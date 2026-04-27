@@ -272,3 +272,87 @@ export const getFingerprint = async (key: CryptoKey): Promise<string> => {
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 8).toUpperCase();
 };
+// --- GROUP KEY MANAGEMENT ---
+
+/**
+ * Generate a random 256-bit AES-GCM key for a group.
+ */
+export const generateGroupKey = async (): Promise<CryptoKey> => {
+  return await window.crypto.subtle.generateKey(
+    { name: 'AES-GCM', length: 256 },
+    true,
+    ['encrypt', 'decrypt']
+  );
+};
+
+/**
+ * Encrypt a Group Key for a specific member using a shared secret derived from their public key.
+ */
+export const encryptGroupKey = async (
+  groupKey: CryptoKey,
+  recipientPublicKey: CryptoKey,
+  myPrivateKey: CryptoKey
+): Promise<EncryptedPayload> => {
+  const sharedKey = await deriveSharedKey(myPrivateKey, recipientPublicKey);
+  
+  // Export group key to RAW format to encrypt it
+  const exportedGroupKey = await window.crypto.subtle.exportKey('raw', groupKey);
+  
+  const iv = window.crypto.getRandomValues(new Uint8Array(12));
+  const encryptedBuffer = await window.crypto.subtle.encrypt(
+    { name: 'AES-GCM', iv },
+    sharedKey,
+    exportedGroupKey
+  );
+
+  return {
+    cipherText: bufferToBase64(encryptedBuffer),
+    iv: bufferToBase64(iv),
+  };
+};
+
+/**
+ * Decrypt a Group Key sent by the creator.
+ */
+export const decryptGroupKey = async (
+  encryptedPayload: EncryptedPayload,
+  creatorPublicKey: CryptoKey,
+  myPrivateKey: CryptoKey
+): Promise<CryptoKey> => {
+  const sharedKey = await deriveSharedKey(myPrivateKey, creatorPublicKey);
+  
+  const decryptedBuffer = await window.crypto.subtle.decrypt(
+    { name: 'AES-GCM', iv: base64ToBuffer(encryptedPayload.iv) },
+    sharedKey,
+    base64ToBuffer(encryptedPayload.cipherText)
+  );
+
+  return await window.crypto.subtle.importKey(
+    'raw',
+    decryptedBuffer,
+    { name: 'AES-GCM', length: 256 },
+    true,
+    ['encrypt', 'decrypt']
+  );
+};
+
+/**
+ * Export a CryptoKey to base64 for storage (as a member of a group)
+ */
+export const exportGroupKey = async (key: CryptoKey): Promise<string> => {
+  const exported = await window.crypto.subtle.exportKey('raw', key);
+  return bufferToBase64(exported);
+};
+
+/**
+ * Import a Group Key from base64 (already decrypted)
+ */
+export const importGroupKey = async (base64: string): Promise<CryptoKey> => {
+  return await window.crypto.subtle.importKey(
+    'raw',
+    base64ToBuffer(base64),
+    { name: 'AES-GCM', length: 256 },
+    true,
+    ['encrypt', 'decrypt']
+  );
+};

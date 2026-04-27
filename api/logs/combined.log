@@ -125,3 +125,379 @@
 {"level":"info","message":"💾 Message saved successfully to DB! ID: caae6ca0-66ca-400c-ae9c-263a8c7d4553","timestamp":"2026-04-25T10:45:09.737Z"}
 {"level":"info","message":"📡 New Authenticated Socket Connection: fnuev238 (socket: KnVAHprwxChccCCgAAAn)","timestamp":"2026-04-25T10:45:55.511Z"}
 {"level":"info","message":"User fnuev238 joined the faculty relay.","timestamp":"2026-04-25T10:45:55.539Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-25T10:59:27.794Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: kfgri3rve (socket: rwyG-3Jxk_NEtEopAAAB)","timestamp":"2026-04-25T10:59:37.979Z"}
+{"level":"info","message":"User kfgri3rve joined the faculty relay.","timestamp":"2026-04-25T10:59:38.053Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fnuev238 (socket: rW79msmWzUOxqoAmAAAD)","timestamp":"2026-04-25T10:59:51.845Z"}
+{"level":"info","message":"User fnuev238 joined the faculty relay.","timestamp":"2026-04-25T10:59:51.924Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to fnuev238","timestamp":"2026-04-25T11:00:16.246Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: fnuev238","timestamp":"2026-04-25T11:00:16.248Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: f0ddb44c-5e2f-4ae2-a707-4f4d6eaa0884","timestamp":"2026-04-25T11:00:16.306Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to fnuev238","timestamp":"2026-04-25T11:00:21.729Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: fnuev238","timestamp":"2026-04-25T11:00:21.730Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 9f7123ee-80da-4109-a0db-c59f81d3de8a","timestamp":"2026-04-25T11:00:21.745Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to fnuev238","timestamp":"2026-04-25T11:01:01.436Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: fnuev238","timestamp":"2026-04-25T11:01:01.437Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: c1a7ec25-3e9c-4a94-977d-747731e0d2c9","timestamp":"2026-04-25T11:01:01.456Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: kfgri3rve (socket: YO_8YqmbBMkOsDHdAAAG)","timestamp":"2026-04-25T11:03:05.028Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fnuev238 (socket: np1101Weu0ZxJczfAAAH)","timestamp":"2026-04-25T11:03:05.034Z"}
+{"level":"info","message":"User kfgri3rve joined the faculty relay.","timestamp":"2026-04-25T11:03:05.071Z"}
+{"level":"info","message":"User fnuev238 joined the faculty relay.","timestamp":"2026-04-25T11:03:05.180Z"}
+{"level":"info","message":"📩 Received send-message event from fnuev238 to kfgri3rve","timestamp":"2026-04-25T11:03:47.052Z"}
+{"level":"info","message":"Saving message to DB. from: fnuev238, to: kfgri3rve","timestamp":"2026-04-25T11:03:47.053Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: a7fe3559-320b-48df-837e-2b1bc80433bc","timestamp":"2026-04-25T11:03:47.070Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to fnuev238","timestamp":"2026-04-25T11:04:06.635Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: fnuev238","timestamp":"2026-04-25T11:04:06.636Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 523beb91-f0ec-4251-bc39-578e4467dccd","timestamp":"2026-04-25T11:04:06.669Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to fnuev238","timestamp":"2026-04-25T11:04:20.311Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: fnuev238","timestamp":"2026-04-25T11:04:20.312Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 9ce079ec-c21f-4418-bd2b-32a6d63c930d","timestamp":"2026-04-25T11:04:20.331Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to fnuev238","timestamp":"2026-04-25T11:04:46.065Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: fnuev238","timestamp":"2026-04-25T11:04:46.066Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: efd97935-ea4e-4030-9885-cfc3d3407530","timestamp":"2026-04-25T11:04:46.078Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fnuev238 (socket: NCzvIKjSEei5gW6oAAAJ)","timestamp":"2026-04-25T11:05:09.360Z"}
+{"level":"info","message":"User fnuev238 joined the faculty relay.","timestamp":"2026-04-25T11:05:09.393Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to fnuev238","timestamp":"2026-04-25T11:13:09.508Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: fnuev238","timestamp":"2026-04-25T11:13:09.509Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 533b589d-5b8a-424b-a8c9-0f6d41c93753","timestamp":"2026-04-25T11:13:09.539Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to fnuev238","timestamp":"2026-04-25T11:13:22.707Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: fnuev238","timestamp":"2026-04-25T11:13:22.708Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 28d0a401-bd79-4d32-9051-15c4178b3a7f","timestamp":"2026-04-25T11:13:22.725Z"}
+{"level":"info","message":"📩 Received send-message event from fnuev238 to kfgri3rve","timestamp":"2026-04-25T11:13:41.481Z"}
+{"level":"info","message":"Saving message to DB. from: fnuev238, to: kfgri3rve","timestamp":"2026-04-25T11:13:41.481Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 72de8866-8721-4131-9c14-050f503e4686","timestamp":"2026-04-25T11:13:41.500Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: dsgkj43iur2iu4t (socket: W8XBCfAbHltyFVVWAAAL)","timestamp":"2026-04-25T11:21:52.166Z"}
+{"level":"info","message":"User dsgkj43iur2iu4t joined the faculty relay.","timestamp":"2026-04-25T11:21:52.243Z"}
+{"level":"info","message":"📩 Received send-message event from dsgkj43iur2iu4t to fnuev238","timestamp":"2026-04-25T11:22:00.995Z"}
+{"level":"info","message":"Saving message to DB. from: dsgkj43iur2iu4t, to: fnuev238","timestamp":"2026-04-25T11:22:00.995Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 97e920a2-9f3c-4241-aa7c-d74bc086bdf7","timestamp":"2026-04-25T11:22:01.007Z"}
+{"level":"info","message":"📩 Received send-message event from dsgkj43iur2iu4t to kfgri3rve","timestamp":"2026-04-25T11:22:09.689Z"}
+{"level":"info","message":"Saving message to DB. from: dsgkj43iur2iu4t, to: kfgri3rve","timestamp":"2026-04-25T11:22:09.690Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 175550bc-63df-47b3-8392-f46968154411","timestamp":"2026-04-25T11:22:09.706Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to dsgkj43iur2iu4t","timestamp":"2026-04-25T11:26:20.687Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: dsgkj43iur2iu4t","timestamp":"2026-04-25T11:26:20.688Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: e6790929-9007-42ca-8b38-36b42bf85f24","timestamp":"2026-04-25T11:26:20.715Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to dsgkj43iur2iu4t","timestamp":"2026-04-25T11:26:28.511Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: dsgkj43iur2iu4t","timestamp":"2026-04-25T11:26:28.511Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 47d6293f-a146-4f27-94e7-d6e23ec83205","timestamp":"2026-04-25T11:26:28.525Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-25T11:38:29.299Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-25T11:38:29.324Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fnuev238 (socket: 8eRaLIUH5-jVyIp4AAAB)","timestamp":"2026-04-25T11:38:29.848Z"}
+{"level":"info","message":"User fnuev238 joined the faculty relay.","timestamp":"2026-04-25T11:38:29.952Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: kfgri3rve (socket: GFt1nj0kamKVBrjIAAAD)","timestamp":"2026-04-25T11:38:30.383Z"}
+{"level":"info","message":"User kfgri3rve joined the faculty relay.","timestamp":"2026-04-25T11:38:30.435Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: kfgri3rve (socket: Qr6yfy2G5bhJ-3cUAAAF)","timestamp":"2026-04-25T11:38:41.490Z"}
+{"level":"info","message":"User kfgri3rve joined the faculty relay.","timestamp":"2026-04-25T11:38:41.586Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fnuev238 (socket: eQZ2PZ8OFySIzEsXAAAH)","timestamp":"2026-04-25T11:38:45.298Z"}
+{"level":"info","message":"User fnuev238 joined the faculty relay.","timestamp":"2026-04-25T11:38:45.418Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: kfgri3rve (socket: ZZF-aEMmgZ-jnJcjAAAJ)","timestamp":"2026-04-25T11:39:07.535Z"}
+{"level":"info","message":"User kfgri3rve joined the faculty relay.","timestamp":"2026-04-25T11:39:07.729Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fnuev238 (socket: ivSpAm0w-5zL_A58AAAL)","timestamp":"2026-04-25T11:39:08.751Z"}
+{"level":"info","message":"User fnuev238 joined the faculty relay.","timestamp":"2026-04-25T11:39:08.978Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: kfgri3rve (socket: cDpLq-z5S9oVn-DRAAAN)","timestamp":"2026-04-25T11:39:25.489Z"}
+{"level":"info","message":"User kfgri3rve joined the faculty relay.","timestamp":"2026-04-25T11:39:25.610Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fnuev238 (socket: xSZs77VXy3_GW4xaAAAP)","timestamp":"2026-04-25T11:39:26.257Z"}
+{"level":"info","message":"User fnuev238 joined the faculty relay.","timestamp":"2026-04-25T11:39:26.427Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: dsgkj43iur2iu4t (socket: AlRap6SAZZZXkm68AAAR)","timestamp":"2026-04-25T11:40:27.871Z"}
+{"level":"info","message":"User dsgkj43iur2iu4t joined the faculty relay.","timestamp":"2026-04-25T11:40:27.905Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: dsgkj43iur2iu4t (socket: t6gJPE5ZdeR7UoO_AAAT)","timestamp":"2026-04-25T11:40:32.320Z"}
+{"level":"info","message":"User dsgkj43iur2iu4t joined the faculty relay.","timestamp":"2026-04-25T11:40:32.574Z"}
+{"level":"info","message":"📩 Received send-message event from dsgkj43iur2iu4t to fnuev238","timestamp":"2026-04-25T11:41:04.216Z"}
+{"level":"info","message":"Saving message to DB. from: dsgkj43iur2iu4t, to: fnuev238","timestamp":"2026-04-25T11:41:04.217Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: f6a83c0b-40f5-4c1e-a432-5c5b95c1c31b","timestamp":"2026-04-25T11:41:04.267Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to dsgkj43iur2iu4t","timestamp":"2026-04-25T11:41:12.241Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: dsgkj43iur2iu4t","timestamp":"2026-04-25T11:41:12.242Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 6f11a91b-ba31-445c-8688-bc4d2b5861b1","timestamp":"2026-04-25T11:41:12.253Z"}
+{"level":"info","message":"📩 Received send-message event from dsgkj43iur2iu4t to kfgri3rve","timestamp":"2026-04-25T11:41:19.652Z"}
+{"level":"info","message":"Saving message to DB. from: dsgkj43iur2iu4t, to: kfgri3rve","timestamp":"2026-04-25T11:41:19.653Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: f4a8a9e7-6eff-4346-a295-1a1c6ddf10da","timestamp":"2026-04-25T11:41:19.671Z"}
+{"level":"info","message":"📩 Received send-message event from kfgri3rve to dsgkj43iur2iu4t","timestamp":"2026-04-25T11:41:27.668Z"}
+{"level":"info","message":"Saving message to DB. from: kfgri3rve, to: dsgkj43iur2iu4t","timestamp":"2026-04-25T11:41:27.669Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: d7e429b7-32bf-4b9d-8b66-e206b0266f4a","timestamp":"2026-04-25T11:41:27.688Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fnuev238 (socket: io2rTRF6zq8uetB8AAAW)","timestamp":"2026-04-25T11:42:40.450Z"}
+{"level":"info","message":"User fnuev238 joined the faculty relay.","timestamp":"2026-04-25T11:42:40.505Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: dsgkj43iur2iu4t (socket: 8GV9QqaiHhRNml7CAAAX)","timestamp":"2026-04-25T11:42:40.620Z"}
+{"level":"info","message":"User dsgkj43iur2iu4t joined the faculty relay.","timestamp":"2026-04-25T11:42:40.662Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-26T19:34:54.934Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: rtyrww (socket: 9L2iPmqoDIcqkeKqAAAB)","timestamp":"2026-04-26T19:35:17.458Z"}
+{"level":"info","message":"User rtyrww joined the faculty relay.","timestamp":"2026-04-26T19:35:17.488Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: ert34f34 (socket: ugEWBH8Il46RqSDoAAAD)","timestamp":"2026-04-26T19:35:52.148Z"}
+{"level":"info","message":"User ert34f34 joined the faculty relay.","timestamp":"2026-04-26T19:35:52.171Z"}
+{"level":"info","message":"📩 Received send-message event from ert34f34 to rtyrww","timestamp":"2026-04-26T19:36:23.658Z"}
+{"level":"info","message":"Saving message to DB. from: ert34f34, to: rtyrww","timestamp":"2026-04-26T19:36:23.659Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 9e3da540-1fa5-4f44-b03b-343b3f43d001","timestamp":"2026-04-26T19:36:23.673Z"}
+{"level":"info","message":"📩 Received send-message event from rtyrww to ert34f34","timestamp":"2026-04-26T19:36:29.514Z"}
+{"level":"info","message":"Saving message to DB. from: rtyrww, to: ert34f34","timestamp":"2026-04-26T19:36:29.515Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 16f26f87-f8ca-4ce9-ad69-35fb57e1c79d","timestamp":"2026-04-26T19:36:29.526Z"}
+{"level":"info","message":"📩 Received send-message event from ert34f34 to rtyrww","timestamp":"2026-04-26T19:36:33.214Z"}
+{"level":"info","message":"Saving message to DB. from: ert34f34, to: rtyrww","timestamp":"2026-04-26T19:36:33.214Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 103e2959-2804-40cc-8023-cbc6a2cbe929","timestamp":"2026-04-26T19:36:33.220Z"}
+{"level":"info","message":"📩 Received send-message event from ert34f34 to rtyrww","timestamp":"2026-04-26T19:37:44.931Z"}
+{"level":"info","message":"Saving message to DB. from: ert34f34, to: rtyrww","timestamp":"2026-04-26T19:37:44.931Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: de269f73-e0b3-4113-8d7e-fbfb2bf381ed","timestamp":"2026-04-26T19:37:44.943Z"}
+{"level":"info","message":"📩 Received send-message event from rtyrww to ert34f34","timestamp":"2026-04-26T19:37:52.962Z"}
+{"level":"info","message":"Saving message to DB. from: rtyrww, to: ert34f34","timestamp":"2026-04-26T19:37:52.962Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 6c50d20b-98d9-4b35-81be-55124da6010f","timestamp":"2026-04-26T19:37:52.969Z"}
+{"level":"info","message":"📩 Received send-message event from ert34f34 to rtyrww","timestamp":"2026-04-26T19:38:46.732Z"}
+{"level":"info","message":"Saving message to DB. from: ert34f34, to: rtyrww","timestamp":"2026-04-26T19:38:46.732Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 8183d5be-db56-48ec-98cf-aad76fdf7c28","timestamp":"2026-04-26T19:38:46.746Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:34:28.084Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:40:26.873Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:40:32.679Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:40:43.642Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:40:50.331Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:41:01.638Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:41:06.859Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:41:16.399Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: rtyrww (socket: kiwauX3aUEsXAm5RAAAB)","timestamp":"2026-04-27T04:43:35.401Z"}
+{"level":"info","message":"User rtyrww joined the faculty relay.","timestamp":"2026-04-27T04:43:35.458Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fv4fw54 (socket: SeUrAyVLeCpt-jdAAAAD)","timestamp":"2026-04-27T04:43:55.112Z"}
+{"level":"info","message":"User fv4fw54 joined the faculty relay.","timestamp":"2026-04-27T04:43:55.182Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fev34ver3 (socket: 9gLYmnG7qYtrK9yWAAAF)","timestamp":"2026-04-27T04:44:21.173Z"}
+{"level":"info","message":"User fev34ver3 joined the faculty relay.","timestamp":"2026-04-27T04:44:21.195Z"}
+{"level":"info","message":"📩 Received send-message event from fev34ver3 to fv4fw54","timestamp":"2026-04-27T04:44:25.369Z"}
+{"level":"info","message":"Saving message to DB. from: fev34ver3, to: fv4fw54","timestamp":"2026-04-27T04:44:25.370Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 1c3e6970-dbf5-4bda-b799-549aec2ab01a","timestamp":"2026-04-27T04:44:25.382Z"}
+{"level":"info","message":"📩 Received send-message event from fv4fw54 to fev34ver3","timestamp":"2026-04-27T04:44:50.212Z"}
+{"level":"info","message":"Saving message to DB. from: fv4fw54, to: fev34ver3","timestamp":"2026-04-27T04:44:50.213Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 3603f507-54c2-4a15-b81b-cbbcbb883ac4","timestamp":"2026-04-27T04:44:50.231Z"}
+{"level":"info","message":"📩 Received send-message event from fv4fw54 to fev34ver3","timestamp":"2026-04-27T04:45:01.410Z"}
+{"level":"info","message":"Saving message to DB. from: fv4fw54, to: fev34ver3","timestamp":"2026-04-27T04:45:01.411Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 01e1fad2-1854-4449-a42f-fd42234f48c2","timestamp":"2026-04-27T04:45:01.428Z"}
+{"level":"info","message":"📩 Received send-message event from fev34ver3 to fv4fw54","timestamp":"2026-04-27T04:45:08.450Z"}
+{"level":"info","message":"Saving message to DB. from: fev34ver3, to: fv4fw54","timestamp":"2026-04-27T04:45:08.450Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 2e0598a5-989c-4c59-b555-f1fe9e00ace1","timestamp":"2026-04-27T04:45:08.461Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fv4fw54 (socket: oJzUrVxCWiS0nHIQAAAH)","timestamp":"2026-04-27T04:49:17.191Z"}
+{"level":"info","message":"User fv4fw54 joined the faculty relay.","timestamp":"2026-04-27T04:49:17.217Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:49:33.197Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fev34ver3 (socket: 9zsbrrkuRuQzkM1EAAAB)","timestamp":"2026-04-27T04:49:33.511Z"}
+{"level":"info","message":"User fev34ver3 joined the faculty relay.","timestamp":"2026-04-27T04:49:33.572Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fv4fw54 (socket: lse8id7Bzj-smuMMAAAD)","timestamp":"2026-04-27T04:49:35.237Z"}
+{"level":"info","message":"User fv4fw54 joined the faculty relay.","timestamp":"2026-04-27T04:49:35.267Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T04:49:41.578Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fev34ver3 (socket: Xw_F2G6qC7G8goImAAAB)","timestamp":"2026-04-27T04:49:41.962Z"}
+{"level":"info","message":"User fev34ver3 joined the faculty relay.","timestamp":"2026-04-27T04:49:42.041Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fv4fw54 (socket: FdZK_6PKEEC2n_rmAAAD)","timestamp":"2026-04-27T04:49:43.709Z"}
+{"level":"info","message":"User fv4fw54 joined the faculty relay.","timestamp":"2026-04-27T04:49:43.754Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fev34ver3 (socket: KuMLDHF4uk0aWIC3AAAF)","timestamp":"2026-04-27T04:53:26.379Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fv4fw54 (socket: zCkGb7h4No9RrTaQAAAH)","timestamp":"2026-04-27T04:53:26.403Z"}
+{"level":"info","message":"User fev34ver3 joined the faculty relay.","timestamp":"2026-04-27T04:53:26.457Z"}
+{"level":"info","message":"User fv4fw54 joined the faculty relay.","timestamp":"2026-04-27T04:53:26.463Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: vrejire34 (socket: vWWm20RtdY4gO_B1AAAJ)","timestamp":"2026-04-27T04:54:36.839Z"}
+{"level":"info","message":"User vrejire34 joined the faculty relay.","timestamp":"2026-04-27T04:54:36.867Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:01:01.865Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: vrejire34 (socket: 8MfS-WYQ51Hmah1VAAAB)","timestamp":"2026-04-27T05:01:03.132Z"}
+{"level":"info","message":"User vrejire34 joined the faculty relay.","timestamp":"2026-04-27T05:01:03.183Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fv4fw54 (socket: zOl38qBTP2-N3k1cAAAE)","timestamp":"2026-04-27T05:01:06.516Z"}
+{"level":"info","message":"User fv4fw54 joined the faculty relay.","timestamp":"2026-04-27T05:01:06.561Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fev34ver3 (socket: 9mpqWnlBgAcEsEq0AAAG)","timestamp":"2026-04-27T05:01:07.203Z"}
+{"level":"info","message":"User fev34ver3 joined the faculty relay.","timestamp":"2026-04-27T05:01:07.225Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: vrejire34 (socket: WHx7dFWd0HszVFUMAAAI)","timestamp":"2026-04-27T05:01:08.080Z"}
+{"level":"info","message":"User vrejire34 joined the faculty relay.","timestamp":"2026-04-27T05:01:08.314Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fev34ver3 (socket: ZPC1XoFCD3yLratyAAAK)","timestamp":"2026-04-27T05:01:09.734Z"}
+{"level":"info","message":"User fev34ver3 joined the faculty relay.","timestamp":"2026-04-27T05:01:09.757Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fev34ver3 (socket: Z5AwkJEVcWuU1HRnAAAM)","timestamp":"2026-04-27T05:01:36.043Z"}
+{"level":"info","message":"User fev34ver3 joined the faculty relay.","timestamp":"2026-04-27T05:01:36.066Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:03:10.275Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:06:43.162Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:09:47.549Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:09:59.617Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:10:05.777Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:12:22.264Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:14:33.073Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: WIkDqY-SqqBbs2JaAAAB)","timestamp":"2026-04-27T05:14:43.145Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:14:43.211Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: 22PBwIxPOpZu5UUdAAAD)","timestamp":"2026-04-27T05:14:48.980Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:14:49.024Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: fev34ver3 (socket: bZkHnoAwN_wXao00AAAF)","timestamp":"2026-04-27T05:15:12.760Z"}
+{"level":"info","message":"User fev34ver3 joined the faculty relay.","timestamp":"2026-04-27T05:15:12.793Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: 2u8cmu8BuZQi-3zZAAAH)","timestamp":"2026-04-27T05:15:55.785Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:15:55.806Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test3 (socket: cU8-LeLcijQnq0jAAAAJ)","timestamp":"2026-04-27T05:16:42.383Z"}
+{"level":"info","message":"User test3 joined the faculty relay.","timestamp":"2026-04-27T05:16:42.408Z"}
+{"level":"info","message":"👥 User test3 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:16:59.662Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: qzrhSrLTX-X0a4JwAAAL)","timestamp":"2026-04-27T05:17:10.632Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:17:10.655Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: 2IPjCuwvBEJQS90JAAAN)","timestamp":"2026-04-27T05:17:13.114Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:17:13.165Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: LGFwpSHPmd7iW8unAAAP)","timestamp":"2026-04-27T05:17:25.964Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:17:25.991Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: oIieSfhIHVpxQZneAAAR)","timestamp":"2026-04-27T05:17:37.772Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:17:37.811Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: elH60EvKWKpy0bnwAAAT)","timestamp":"2026-04-27T05:18:47.503Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:18:47.548Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: O0znn0_0cyzUv7ayAAAV)","timestamp":"2026-04-27T05:19:19.050Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:19:19.122Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: QUQkthp38hUMPyn8AAAX)","timestamp":"2026-04-27T05:20:48.754Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:20:48.867Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: IzubjQjYRQYIPKNCAAAZ)","timestamp":"2026-04-27T05:22:27.339Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:22:27.380Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: ceDqmfPxOmU_zrj3AAAc)","timestamp":"2026-04-27T05:22:27.515Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test3 (socket: 9hfWWPVensk2HWEwAAAd)","timestamp":"2026-04-27T05:22:27.561Z"}
+{"level":"info","message":"User test3 joined the faculty relay.","timestamp":"2026-04-27T05:22:27.600Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:22:27.741Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: 9w3P0ZnFzsrpsCV2AAAf)","timestamp":"2026-04-27T05:24:45.600Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:24:45.650Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: XDdyg610lYWkmCfIAAAh)","timestamp":"2026-04-27T05:24:48.395Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:24:48.424Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:24:52.812Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:24:57.275Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:25:11.369Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: qigUhg2btvExp5xZAAAj)","timestamp":"2026-04-27T05:29:53.156Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:29:53.186Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: oBG2lvKNdqHKdDRhAAAl)","timestamp":"2026-04-27T05:29:53.416Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:29:53.433Z"}
+{"level":"info","message":"📩 Group message from test2 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:30:07.532Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:30:23.918Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:30:55.925Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: ylf5k0Ym6S7WtdmRAAAB)","timestamp":"2026-04-27T05:30:56.468Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:30:56.541Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: YV87gW_RqsZFiK12AAAE)","timestamp":"2026-04-27T05:31:01.051Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:31:01.077Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: tyYqgnqPOWyviC4TAAAG)","timestamp":"2026-04-27T05:31:01.210Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:31:01.232Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: 4AlC528aZI1faDGSAAAI)","timestamp":"2026-04-27T05:31:08.746Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:31:08.773Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:31:12.887Z"}
+{"level":"info","message":"📩 Received send-message event from test1 to test2","timestamp":"2026-04-27T05:31:52.719Z"}
+{"level":"info","message":"Saving message to DB. from: test1, to: test2","timestamp":"2026-04-27T05:31:52.720Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: 04963db7-c3ff-4918-a0de-8310a0cae4aa","timestamp":"2026-04-27T05:31:52.744Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:34:13.006Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: FMxpH-Cr4ZbfzYdLAAAB)","timestamp":"2026-04-27T05:34:13.266Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:34:13.326Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: Vu-gQKmd3WE0Q8LrAAAD)","timestamp":"2026-04-27T05:34:13.495Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:34:13.521Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:34:30.972Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: zGyaUKCRjpGjoKNOAAAB)","timestamp":"2026-04-27T05:34:31.248Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:34:31.308Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: qizUaRkpa1J_GQsoAAAD)","timestamp":"2026-04-27T05:34:31.420Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:34:31.444Z"}
+{"level":"info","message":"📩 Group message from test2 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:35:02.754Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: aioTxr97Q9mPy3a3AAAF)","timestamp":"2026-04-27T05:35:36.032Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:35:36.067Z"}
+{"level":"info","message":"📩 Group message from test2 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:35:40.516Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: o47ys0kwgEtPUwXoAAAH)","timestamp":"2026-04-27T05:37:52.239Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:37:52.247Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:37:52.265Z"}
+{"level":"info","message":"📩 Group message from test2 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:38:15.332Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:38:29.403Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: y_iQ-pYtlB3XvwlfAAAJ)","timestamp":"2026-04-27T05:38:33.525Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:38:33.532Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:38:33.551Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:38:37.810Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: iqDbmmCw9cqY23jnAAAL)","timestamp":"2026-04-27T05:38:42.687Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:38:42.701Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:38:42.728Z"}
+{"level":"info","message":"📩 Group message from test2 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:42:01.343Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: qqpyexpF2rIg7iJ4AAAN)","timestamp":"2026-04-27T05:42:05.366Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:42:05.377Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:42:05.424Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:42:13.951Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: EC8KKHUu1dPfBOpLAAAP)","timestamp":"2026-04-27T05:42:19.600Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:42:19.605Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:42:19.624Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: sdQiM-fb__VCf4PPAAAR)","timestamp":"2026-04-27T05:44:50.162Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:44:50.167Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:44:50.193Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: ODTSLpp-MOLzm8b0AAAT)","timestamp":"2026-04-27T05:46:48.548Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:46:48.561Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:46:48.591Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:47:01.492Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: w1g9Dlg_-MbF9G6aAAAV)","timestamp":"2026-04-27T05:47:09.138Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:47:09.150Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:47:09.281Z"}
+{"level":"info","message":"📩 Group message from test2 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:47:13.375Z"}
+{"level":"info","message":"📩 Group message from test2 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:47:16.782Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: 8eshdrayghT_r5KyAAAX)","timestamp":"2026-04-27T05:47:20.234Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:47:20.241Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:47:20.257Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: fwmfeMvxygCKfyHOAAAZ)","timestamp":"2026-04-27T05:47:26.757Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:47:26.761Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:47:26.786Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:48:13.467Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: AuwccV3nMgeoxj1kAAAB)","timestamp":"2026-04-27T05:48:13.709Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:48:13.733Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:48:13.773Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: 5Hyp6bw0txJfAK6rAAAD)","timestamp":"2026-04-27T05:48:13.924Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:48:13.933Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:48:13.953Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:49:03.858Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: eMENmxt0e_JnC_CJAAAB)","timestamp":"2026-04-27T05:49:04.163Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:49:04.210Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:49:04.259Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: LYZS8XK8bVMaO7oJAAAD)","timestamp":"2026-04-27T05:49:05.999Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:49:06.015Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:49:06.081Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: pYzDt-IXdh4xOtceAAAF)","timestamp":"2026-04-27T05:49:11.396Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:49:11.455Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:49:11.469Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: vQvEV5WTZb5HSKN7AAAH)","timestamp":"2026-04-27T05:49:11.503Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:49:11.510Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:49:11.535Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: muQus0ZaLSQJFKtZAAAJ)","timestamp":"2026-04-27T05:51:22.798Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:51:22.808Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:51:22.835Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:51:30.135Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:51:35.708Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: 9awMihT0_gIBG1ljAAAL)","timestamp":"2026-04-27T05:51:41.496Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:51:41.509Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:51:41.535Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:52:36.198Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:52:47.272Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T05:57:09.724Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: rEVIHIV5pFfybFBWAAAB)","timestamp":"2026-04-27T05:57:13.033Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:57:13.041Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:57:13.083Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:57:20.764Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: QduMlqVdhQ-EXnnfAAAD)","timestamp":"2026-04-27T05:57:23.860Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:57:23.867Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:57:23.882Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: d10yTJ9y5HhOHylqAAAF)","timestamp":"2026-04-27T05:57:29.426Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:57:29.433Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:57:29.455Z"}
+{"level":"info","message":"📩 Group message from test2 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:57:33.070Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: 43zxcU9yEhHTz0l6AAAH)","timestamp":"2026-04-27T05:57:36.839Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:57:36.848Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T05:57:36.885Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: QT_n-YisF0zAz8pcAAAJ)","timestamp":"2026-04-27T05:57:41.349Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:57:41.355Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T05:57:41.370Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test3 (socket: zw4PPKqH2qLh5aE0AAAL)","timestamp":"2026-04-27T05:57:54.977Z"}
+{"level":"info","message":"👥 User test3 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:57:55.084Z"}
+{"level":"info","message":"User test3 joined the faculty relay.","timestamp":"2026-04-27T05:57:55.098Z"}
+{"level":"info","message":"📩 Group message from test2 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T05:59:57.097Z"}
+{"level":"info","message":"📩 Received send-message event from test1 to test2","timestamp":"2026-04-27T06:02:42.078Z"}
+{"level":"info","message":"Saving message to DB. from: test1, to: test2","timestamp":"2026-04-27T06:02:42.079Z"}
+{"level":"info","message":"💾 Message saved successfully to DB! ID: b79b8a5f-2b54-4966-a37f-67e689f120c5","timestamp":"2026-04-27T06:02:42.109Z"}
+{"level":"info","message":"📩 Group message from test1 to group 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T06:02:47.125Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test4 (socket: c5S9amqBkE0FfYl7AAAN)","timestamp":"2026-04-27T06:04:13.760Z"}
+{"level":"info","message":"User test4 joined the faculty relay.","timestamp":"2026-04-27T06:04:13.800Z"}
+{"level":"info","message":"👥 User test4 joined group room: f8b78437-4a8d-4c51-8a83-372d57def2a2","timestamp":"2026-04-27T06:04:33.726Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: rNXpT0k4ij9uarpvAAAP)","timestamp":"2026-04-27T06:04:43.975Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T06:04:43.983Z"}
+{"level":"info","message":"👥 User test1 joined group room: f8b78437-4a8d-4c51-8a83-372d57def2a2","timestamp":"2026-04-27T06:04:43.985Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T06:04:44.020Z"}
+{"level":"info","message":"📩 Group message from test1 to group f8b78437-4a8d-4c51-8a83-372d57def2a2","timestamp":"2026-04-27T06:04:49.072Z"}
+{"level":"info","message":"📩 Group message from test4 to group f8b78437-4a8d-4c51-8a83-372d57def2a2","timestamp":"2026-04-27T06:05:07.966Z"}
+{"level":"info","message":"🚀 Signaling server starting up...","timestamp":"2026-04-27T06:09:20.454Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test4 (socket: I96d3H-Nzh9UnCReAAAC)","timestamp":"2026-04-27T06:09:21.123Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test3 (socket: NfYkMaWneJxJEpVgAAAD)","timestamp":"2026-04-27T06:09:21.133Z"}
+{"level":"info","message":"👥 User test4 joined group room: f8b78437-4a8d-4c51-8a83-372d57def2a2","timestamp":"2026-04-27T06:09:21.143Z"}
+{"level":"info","message":"👥 User test3 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T06:09:21.161Z"}
+{"level":"info","message":"User test4 joined the faculty relay.","timestamp":"2026-04-27T06:09:21.282Z"}
+{"level":"info","message":"User test3 joined the faculty relay.","timestamp":"2026-04-27T06:09:21.291Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test2 (socket: 90I8KspANlo-E6UzAAAG)","timestamp":"2026-04-27T06:09:22.098Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: 5umgOTsCoEY4E5FEAAAH)","timestamp":"2026-04-27T06:09:22.106Z"}
+{"level":"info","message":"👥 User test2 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T06:09:22.122Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T06:09:22.126Z"}
+{"level":"info","message":"👥 User test1 joined group room: f8b78437-4a8d-4c51-8a83-372d57def2a2","timestamp":"2026-04-27T06:09:22.127Z"}
+{"level":"info","message":"User test2 joined the faculty relay.","timestamp":"2026-04-27T06:09:22.210Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T06:09:22.219Z"}
+{"level":"info","message":"📩 Group message from test4 to group f8b78437-4a8d-4c51-8a83-372d57def2a2","timestamp":"2026-04-27T06:10:57.542Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test4 (socket: Yc9-LYwDv4JvXpTHAAAJ)","timestamp":"2026-04-27T06:11:04.947Z"}
+{"level":"info","message":"👥 User test4 joined group room: f8b78437-4a8d-4c51-8a83-372d57def2a2","timestamp":"2026-04-27T06:11:04.960Z"}
+{"level":"info","message":"User test4 joined the faculty relay.","timestamp":"2026-04-27T06:11:05.037Z"}
+{"level":"info","message":"📡 New Authenticated Socket Connection: test1 (socket: mKf2u4t6jcSDcbvzAAAL)","timestamp":"2026-04-27T06:11:17.600Z"}
+{"level":"info","message":"👥 User test1 joined group room: 40d7ea78-d226-4b73-88f4-72f1b7173ff6","timestamp":"2026-04-27T06:11:17.611Z"}
+{"level":"info","message":"👥 User test1 joined group room: f8b78437-4a8d-4c51-8a83-372d57def2a2","timestamp":"2026-04-27T06:11:17.613Z"}
+{"level":"info","message":"User test1 joined the faculty relay.","timestamp":"2026-04-27T06:11:17.649Z"}

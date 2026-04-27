@@ -4,7 +4,11 @@ import jwt from 'jsonwebtoken';
 import User from '../models/User';
 import { signupSchema, loginSchema } from '../validators/authValidator';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET && process.env.NODE_ENV === 'production') {
+  throw new Error('JWT_SECRET must be defined in production');
+}
+const effectiveSecret = JWT_SECRET || 'fallback_secret';
 
 export const signup = async (req: Request, res: Response): Promise<any> => {
   try {
@@ -38,7 +42,7 @@ export const signup = async (req: Request, res: Response): Promise<any> => {
       role
     });
 
-    const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: '1d' });
+    const token = jwt.sign({ id: user.id, username: user.username }, effectiveSecret, { expiresIn: '1d' });
 
     res.cookie('jwt', token, {
       httpOnly: true,
@@ -72,7 +76,7 @@ export const login = async (req: Request, res: Response): Promise<any> => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: '1d' });
+    const token = jwt.sign({ id: user.id, username: user.username }, effectiveSecret, { expiresIn: '1d' });
 
     res.cookie('jwt', token, {
       httpOnly: true,

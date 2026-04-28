@@ -7,6 +7,7 @@ class Message extends Model {
   public to!: string;
   public content!: string; // JSON string of EncryptedPayload
   public timestamp!: Date;
+  public status!: 'sent' | 'delivered' | 'read';
 }
 
 Message.init(
@@ -25,8 +26,12 @@ Message.init(
       allowNull: false,
     },
     content: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT('medium'),
       allowNull: false,
+    },
+    status: {
+      type: DataTypes.ENUM('sent', 'delivered', 'read'),
+      defaultValue: 'sent',
     },
     timestamp: {
       type: DataTypes.DATE,

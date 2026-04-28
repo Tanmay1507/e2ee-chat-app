@@ -31,7 +31,6 @@ export const signup = async (req: Request, res: Response): Promise<any> => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
-      id: Math.random().toString(36).substring(7),
       employeeId,
       username: username.toLowerCase(),
       password: hashedPassword,

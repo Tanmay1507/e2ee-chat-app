@@ -2,25 +2,75 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #09090b;
+  --wa-header: #ffffff;
+  --wa-sidebar: #ffffff;
+  --wa-chat-bg: #fafafa;
+  --wa-bubble-sent: #7c3aed;
+  --wa-bubble-received: #ffffff;
+  --wa-message-text: #09090b;
+  --wa-message-time: #71717a;
+  --wa-unread-badge: #7c3aed;
+  --wa-accent: #7c3aed;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-wa-header: var(--wa-header);
+  --color-wa-sidebar: var(--wa-sidebar);
+  --color-wa-chat-bg: var(--wa-chat-bg);
+  --color-wa-bubble-sent: var(--wa-bubble-sent);
+  --color-wa-bubble-received: var(--wa-bubble-received);
+  --color-wa-accent: var(--wa-accent);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar to look more like WhatsApp/Web */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ced0d1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aeb1b2;
+}
+
+@utility delay-0 {
+  animation-delay: 0ms;
+}
+
+@utility delay-200 {
+  animation-delay: 200ms;
+}
+
+@utility delay-400 {
+  animation-delay: 400ms;
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-swing {
+  animation: swing 2s ease-in-out infinite;
+  transform-origin: top center;
 }

@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import { AuthenticatedRequest, UserPayload } from '../types';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -9,7 +10,7 @@ if (!JWT_SECRET && process.env.NODE_ENV === 'production') {
 
 const fallbackSecret = 'fallback_secret'; // Temporary fallback for dev if not set
 
-export const authMiddleware = (req: Request, res: Response, next: NextFunction): any => {
+export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const token = req.cookies.jwt || req.headers.authorization?.split(' ')[1];
 
   if (!token) {
@@ -17,8 +18,8 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction):
   }
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET || fallbackSecret);
-    (req as any).user = decoded;
+    const decoded = jwt.verify(token, JWT_SECRET || fallbackSecret) as UserPayload;
+    (req as AuthenticatedRequest).user = decoded;
     next();
   } catch (err) {
     return res.status(401).json({ message: 'Invalid or expired token' });

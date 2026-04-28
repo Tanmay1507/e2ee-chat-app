@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { ShieldCheck, Loader2 } from 'lucide-react';
+import { ShieldCheck, Loader2, MessageSquare } from 'lucide-react';
 import { generateKeyPair, exportPublicKey, exportKeyPair, generateSalt, deriveWrappingKeyFromPassword, encryptPrivateKey } from '@/lib/crypto';
 
 export default function SignupPage() {
@@ -22,14 +22,12 @@ export default function SignupPage() {
     setError('');
 
     try {
-      // Normalize username for consistency
       const normalizedUsername = username.trim().toLowerCase();
 
       // 1. Generate E2EE Keys
       const keys = await generateKeyPair();
       const pubKeyBase64 = await exportPublicKey(keys.publicKey);
       
-      // Save keys locally for this user
       const exportedKeys = await exportKeyPair(keys);
       localStorage.setItem(`keys_${normalizedUsername}`, JSON.stringify(exportedKeys));
 
@@ -37,7 +35,6 @@ export default function SignupPage() {
       const keySalt = generateSalt();
       const wrappingKey = await deriveWrappingKeyFromPassword(password, keySalt);
       const encryptedPrivateKeyPayload = await encryptPrivateKey(keys.privateKey, wrappingKey);
-      // We stringify the payload to send as a single TEXT field to the DB
       const encryptedPrivateKey = JSON.stringify(encryptedPrivateKeyPayload);
 
       // 2. Register on server
@@ -63,11 +60,10 @@ export default function SignupPage() {
       } else {
         const text = await res.text();
         console.error('Non-JSON response:', text);
-        throw new Error('Server returned an unexpected error page. Check if API is running.');
+        throw new Error('Server returned an unexpected error page.');
       }
 
       if (res.ok) {
-        // Always normalize the username from the API
         localStorage.setItem('chat_username', data.username.trim().toLowerCase());
         if (data.token) {
           localStorage.setItem('chat_token', data.token);
@@ -85,105 +81,115 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 text-slate-900 p-4 font-sans tracking-wide">
-      <div className="w-full max-w-md p-8 bg-white border border-slate-200 shadow-xl rounded-sm">
-        <div className="flex justify-center mb-6">
-          <div className="p-4 border-2 border-amber-500 rounded-sm bg-amber-50">
-            <ShieldCheck className="w-12 h-12 text-amber-500" />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-50 p-4 sm:p-6 font-sans">
+      <div className="w-full max-w-md p-6 sm:p-10 bg-white shadow-2xl shadow-zinc-200/50 rounded-3xl border border-zinc-100">
+        <div className="flex flex-col items-center mb-10">
+          <div className="w-20 h-20 bg-violet-600 rounded-[2.5rem] flex items-center justify-center mb-6 shadow-lg shadow-violet-200 animate-in fade-in zoom-in duration-500">
+            <Plus className="w-10 h-10 text-white" />
           </div>
+          <h1 className="text-2xl sm:text-3xl font-black text-zinc-900 tracking-tight">Personnel Registration</h1>
+          <p className="text-zinc-500 mt-2 sm:mt-3 text-center text-sm sm:text-base font-medium leading-relaxed px-2 sm:px-4">
+            Initialize your E2EE credentials for the SecureChat network.
+          </p>
         </div>
-        <h1 className="text-2xl font-bold text-center mb-2 uppercase tracking-widest text-blue-950">Network Clearance</h1>
-        <p className="text-slate-500 text-center mb-8 text-sm">Secure registration for authorized personnel.</p>
         
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-600 p-3 rounded-sm mb-6 text-sm text-center font-bold">
+          <div className="bg-red-50 border border-red-100 text-red-700 p-4 rounded-2xl mb-8 text-sm font-bold flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             {error}
           </div>
         )}
 
-        <form onSubmit={handleSignup} className="space-y-4">
+        <form onSubmit={handleSignup} className="space-y-5">
           <div>
-            <label className="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wider">Legal Name</label>
+            <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-2 ml-1">Unique Alias</label>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-slate-300 rounded-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all text-slate-900"
-              placeholder="e.g. John Doe"
+              className="w-full px-5 py-3.5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-50 outline-none transition-all text-zinc-900 font-bold placeholder:text-zinc-400 placeholder:font-medium"
+              placeholder="e.g. j.smith"
               required
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wider">Government ID / Badge Number</label>
+            <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-2 ml-1">Legal Identity</label>
             <input
               type="text"
               value={employeeId}
               onChange={(e) => setEmployeeId(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-slate-300 rounded-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all text-slate-900"
-              placeholder="e.g. GOV-10293"
+              className="w-full px-5 py-3.5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-50 outline-none transition-all text-zinc-900 font-bold placeholder:text-zinc-400 placeholder:font-medium"
+              placeholder="Full Name / Employee ID"
               required
             />
           </div>
+          
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wider">Agency / Bureau</label>
+              <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-2 ml-1">Department</label>
               <select
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
-                className="w-full px-4 py-3 bg-white border border-slate-300 rounded-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all appearance-none text-slate-900 text-sm"
+                className="w-full px-4 py-3.5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:border-violet-500 focus:bg-white outline-none transition-all text-sm font-bold text-zinc-900 cursor-pointer"
                 required
               >
-                <option value="" className="bg-white text-slate-900">Select...</option>
-                <option value="Defense" className="bg-white text-slate-900">Dept. of Defense</option>
-                <option value="Intelligence" className="bg-white text-slate-900">Intelligence Bureau</option>
-                <option value="Treasury" className="bg-white text-slate-900">Treasury</option>
-                <option value="State" className="bg-white text-slate-900">Dept. of State</option>
+                <option value="">Select...</option>
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="Community">Community</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wider">Clearance Role</label>
+              <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-2 ml-1">Clearance</label>
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className="w-full px-4 py-3 bg-white border border-slate-300 rounded-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all appearance-none text-slate-900 text-sm"
+                className="w-full px-4 py-3.5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:border-violet-500 focus:bg-white outline-none transition-all text-sm font-bold text-zinc-900 cursor-pointer"
                 required
               >
-                <option value="" className="bg-white text-slate-900">Select...</option>
-                <option value="Director" className="bg-white text-slate-900">Director</option>
-                <option value="Field Agent" className="bg-white text-slate-900">Field Agent</option>
-                <option value="Analyst" className="bg-white text-slate-900">Analyst</option>
-                <option value="Security" className="bg-white text-slate-900">Security Officer</option>
-                <option value="Contractor" className="bg-white text-slate-900">Contractor</option>
+                <option value="">Select...</option>
+                <option value="User">User</option>
+                <option value="Manager">Manager</option>
+                <option value="Guest">Guest</option>
               </select>
             </div>
           </div>
+
           <div>
-            <label className="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wider">Security Password</label>
+            <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-2 ml-1">Master Access Key</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-slate-300 rounded-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all text-slate-900"
-              placeholder="••••••••"
+              className="w-full px-5 py-3.5 bg-zinc-50 border border-zinc-200 rounded-2xl focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-50 outline-none transition-all text-zinc-900 font-bold placeholder:text-zinc-400 placeholder:font-medium"
+              placeholder="Min. 8 characters"
               required
             />
           </div>
+
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3 bg-blue-700 hover:bg-blue-600 text-white font-bold tracking-widest uppercase rounded-sm transition-colors flex items-center justify-center gap-2 border border-blue-500 shadow-md"
+            className="w-full py-4.5 bg-violet-600 hover:bg-violet-700 text-white font-black rounded-2xl transition-all flex items-center justify-center gap-3 shadow-xl shadow-violet-200 disabled:opacity-70 disabled:shadow-none mt-4 group"
           >
-            {isLoading && <Loader2 className="w-5 h-5 animate-spin" />}
-            {isLoading ? 'Generating Crypto Keys...' : 'Request Access'}
+            {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ShieldCheck className="w-4 h-4 group-hover:scale-110 transition-transform" />}
+            {isLoading ? 'Encrypting Identity...' : 'Initialize Credentials'}
           </button>
         </form>
 
-        <p className="mt-8 text-center text-slate-500 text-xs uppercase tracking-wider">
-          Already cleared?{' '}
-          <Link href="/login" className="text-blue-700 hover:text-blue-900 transition-colors hover:underline font-bold">
-            Secure Login
-          </Link>
-        </p>
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-zinc-100 text-center">
+          <p className="text-zinc-500 text-sm font-medium">
+            Existing credentials?{' '}
+            <Link href="/login" className="text-violet-600 hover:text-violet-700 font-black decoration-violet-600/30 underline-offset-4 hover:underline transition-all">
+              Login to Session
+            </Link>
+          </p>
+        </div>
+
+        <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2.5 text-zinc-400 text-[10px] uppercase tracking-[0.25em] font-black">
+           <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> E2EE PROTECTED
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,11 @@
+
+
 'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { ShieldCheck, Loader2 } from 'lucide-react';
+import { ShieldCheck, Loader2, MessageSquare, Lock } from 'lucide-react';
 
 import { deriveWrappingKeyFromPassword, decryptPrivateKey, exportKeyPair, importPublicKey } from '@/lib/crypto';
 
@@ -55,7 +57,6 @@ export default function LoginPage() {
             localStorage.setItem(`keys_${normalizedUsername}`, JSON.stringify(exportedKeys));
           } catch (cryptoErr) {
             console.error('Failed to restore keys from escrow:', cryptoErr);
-            // Don't block login, but chat will fail until they generate a new key
           }
         }
 
@@ -72,41 +73,44 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 text-slate-900 p-4 font-sans tracking-wide">
-      <div className="w-full max-w-md p-8 bg-white border border-slate-200 shadow-xl rounded-sm">
-        <div className="flex justify-center mb-6">
-          <div className="p-4 border-2 border-amber-500 rounded-sm bg-amber-50">
-            <ShieldCheck className="w-12 h-12 text-amber-500" />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-50 p-4 sm:p-6 font-sans">
+      <div className="w-full max-w-md p-6 sm:p-10 bg-white shadow-2xl shadow-zinc-200/50 rounded-3xl border border-zinc-100">
+        <div className="flex flex-col items-center mb-10">
+          <div className="w-20 h-20 bg-violet-600 rounded-[2.5rem] flex items-center justify-center mb-6 shadow-lg shadow-violet-200 animate-in fade-in zoom-in duration-500">
+            <ShieldCheck className="w-10 h-10 text-white" />
           </div>
+          <h1 className="text-2xl sm:text-3xl font-black text-zinc-900 tracking-tight">SecureChat</h1>
+          <p className="text-zinc-500 mt-2 sm:mt-3 text-center text-sm sm:text-base font-medium leading-relaxed px-2 sm:px-4">
+            Encrypted communications for authorized personnel only.
+          </p>
         </div>
-        <h1 className="text-2xl font-bold text-center mb-2 uppercase tracking-widest text-blue-950">Authorized Personnel Only</h1>
-        <p className="text-slate-500 text-center mb-8 text-sm">Access the Secure Government Network.</p>
         
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-600 p-3 rounded-sm mb-6 text-sm text-center font-bold">
+          <div className="bg-red-50 border border-red-100 text-red-700 p-4 rounded-2xl mb-8 text-sm font-bold flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             {error}
           </div>
         )}
 
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wider">Government ID / Badge Number</label>
+            <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-2.5 ml-1">Employee Credentials</label>
             <input
               type="text"
               value={employeeId}
               onChange={(e) => setEmployeeId(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-slate-300 rounded-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all text-slate-900"
-              placeholder="e.g. GOV-10293"
+              className="w-full px-5 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-50 outline-none transition-all text-zinc-900 font-bold placeholder:text-zinc-400 placeholder:font-medium"
+              placeholder="Username or ID"
               required
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-slate-600 mb-1 uppercase tracking-wider">Security Password</label>
+            <label className="block text-[11px] font-black text-zinc-400 uppercase tracking-[0.2em] mb-2.5 ml-1">Access Key</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-slate-300 rounded-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all text-slate-900"
+              className="w-full px-5 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-50 outline-none transition-all text-zinc-900 font-bold placeholder:text-zinc-400 placeholder:font-medium"
               placeholder="••••••••"
               required
             />
@@ -114,19 +118,25 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3 bg-blue-700 hover:bg-blue-600 text-white font-bold tracking-widest uppercase rounded-sm transition-colors flex items-center justify-center gap-2 border border-blue-500 shadow-md"
+            className="w-full py-4.5 bg-violet-600 hover:bg-violet-700 text-white font-black rounded-2xl transition-all flex items-center justify-center gap-3 shadow-xl shadow-violet-200 disabled:opacity-70 disabled:shadow-none mt-8 group"
           >
-            {isLoading && <Loader2 className="w-5 h-5 animate-spin" />}
-            {isLoading ? 'Authenticating...' : 'Secure Login'}
+            {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Lock className="w-4 h-4 group-hover:scale-110 transition-transform" />}
+            {isLoading ? 'Verifying...' : 'Authorize Access'}
           </button>
         </form>
 
-        <p className="mt-8 text-center text-slate-500 text-xs uppercase tracking-wider">
-          Require Network Clearance?{' '}
-          <Link href="/signup" className="text-blue-700 hover:text-blue-900 transition-colors hover:underline font-bold">
-            Request Access
-          </Link>
-        </p>
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-zinc-100 text-center">
+          <p className="text-zinc-500 text-sm font-medium">
+            New personnel?{' '}
+            <Link href="/signup" className="text-violet-600 hover:text-violet-700 font-black decoration-violet-600/30 underline-offset-4 hover:underline transition-all">
+              Register Credentials
+            </Link>
+          </p>
+        </div>
+
+        <div className="mt-6 sm:mt-8 flex items-center justify-center gap-2.5 text-zinc-400 text-[10px] uppercase tracking-[0.25em] font-black">
+           <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> E2EE PROTECTED
+        </div>
       </div>
     </div>
   );

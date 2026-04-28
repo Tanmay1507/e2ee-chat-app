@@ -4,6 +4,7 @@ import sequelize from '../config/db';
 class GroupMember extends Model {
   public groupId!: string;
   public username!: string;
+  public role!: 'admin' | 'member';
   public encryptedGroupKey!: string; // The group's AES key, encrypted with member's public key
 }
 
@@ -16,6 +17,11 @@ GroupMember.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'member',
     },
     encryptedGroupKey: {
       type: DataTypes.TEXT,

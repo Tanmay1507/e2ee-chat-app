@@ -37,9 +37,7 @@ export const connectDB = async () => {
     await sequelize.authenticate();
     console.log('✅ MySQL Database connected via XAMPP.');
     
-    // Sync models
-    // await sequelize.sync({ alter: true });
-    console.log('✅ Database models synchronized.');
+    // REMOVED: sequelize.sync() - We use migrations to manage the schema.
   } catch (error) {
     console.error('❌ Unable to connect to the database:', error);
     process.exit(1);

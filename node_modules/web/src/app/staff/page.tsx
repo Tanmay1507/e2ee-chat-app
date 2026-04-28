@@ -71,8 +71,8 @@ export default function StaffDirectory() {
               <ArrowLeft className="w-5 h-5" />
             </Link>
             <div>
-              <h1 className="text-sm font-bold uppercase tracking-widest text-blue-950">Select Personnel</h1>
-              <p className="text-[10px] text-slate-500 uppercase tracking-wider font-bold">
+              <h1 className="text-sm font-bold tracking-widest text-blue-950">Select Personnel</h1>
+              <p className="text-[10px] text-slate-500 tracking-wider font-bold">
                 {staff.length} Cleared Staff Members
               </p>
             </div>
@@ -89,22 +89,22 @@ export default function StaffDirectory() {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input 
             type="text"
-            placeholder="SEARCH BY NAME, DEPARTMENT OR ROLE..."
+            placeholder="Search by name, department or role..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-sm text-xs font-bold uppercase tracking-widest focus:ring-2 focus:ring-blue-600 outline-none shadow-sm"
+            className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-sm text-xs font-bold tracking-widest focus:ring-2 focus:ring-blue-600 outline-none shadow-sm"
           />
         </div>
 
         {isLoading ? (
           <div className="flex flex-col items-center justify-center py-20 space-y-4">
             <div className="w-8 h-8 border-4 border-blue-700 border-t-transparent rounded-full animate-spin"></div>
-            <p className="text-[10px] font-bold uppercase text-slate-500 tracking-widest">Accessing Classified Directory...</p>
+            <p className="text-[10px] font-bold text-slate-500 tracking-widest">Accessing Classified Directory...</p>
           </div>
         ) : (
           Object.keys(groupedStaff).sort().map(dept => (
             <section key={dept} className="space-y-3">
-              <h2 className="text-[10px] font-bold text-blue-800 uppercase tracking-[0.2em] px-2">{dept}</h2>
+              <h2 className="text-[10px] font-bold text-blue-800 tracking-[0.2em] px-2">{dept}</h2>
               <div className="bg-white border border-slate-200 rounded-sm shadow-sm overflow-hidden divide-y divide-slate-100">
                 {groupedStaff[dept].map(member => (
                   <button
@@ -119,7 +119,7 @@ export default function StaffDirectory() {
                       </div>
                       <div>
                         <p className="font-bold text-sm text-slate-900 group-hover:text-blue-700 transition-colors">{member.username.trim()}</p>
-                        <p className="text-[10px] text-slate-500 uppercase tracking-wider mt-0.5">{member.role || 'Personnel'}</p>
+                        <p className="text-[10px] text-slate-500 tracking-wider mt-0.5">{member.role || 'Personnel'}</p>
                         <p className="text-[9px] text-slate-400 font-mono mt-1">ID: {member.employeeId}</p>
                       </div>
                     </div>
@@ -135,7 +135,7 @@ export default function StaffDirectory() {
 
         {!isLoading && filteredStaff.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-xs text-slate-400 uppercase tracking-widest italic">No personnel matching search criteria</p>
+            <p className="text-xs text-slate-400 tracking-widest italic">No personnel matching search criteria</p>
           </div>
         )}
       </main>
@@ -144,7 +144,7 @@ export default function StaffDirectory() {
       <footer className="text-center py-10 opacity-30">
         <div className="flex items-center justify-center gap-2 mb-2">
           <ShieldCheck className="w-4 h-4" />
-          <span className="text-[10px] font-bold uppercase tracking-widest">Gov-Secure Classified Network</span>
+          <span className="text-[10px] font-bold tracking-widest">Gov-Secure Classified Network</span>
         </div>
       </footer>
     </div>

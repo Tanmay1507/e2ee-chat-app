@@ -12,6 +12,9 @@ import rateLimit from 'express-rate-limit';
 import logger from './utils/logger';
 import jwt from 'jsonwebtoken';
 import { parse } from 'cookie';
+import Message from './models/Message';
+import GroupMessage from './models/GroupMessage';
+import { Op } from 'sequelize';
 
 const app = express();
 
@@ -99,12 +102,8 @@ const startServer = async () => {
     // 3. Start Retention Cleanup Task (Runs every 24 hours)
     const runCleanup = async () => {
       try {
-        const { Op } = require('sequelize');
         const sixMonthsAgo = new Date();
         sixMonthsAgo.setDate(sixMonthsAgo.getDate() - 180); // ~6 months
-
-        const { Message } = require('./models/Message');
-        const { GroupMessage } = require('./models/GroupMessage');
 
         const deletedPrivate = await Message.destroy({
           where: { timestamp: { [Op.lt]: sixMonthsAgo } }
@@ -114,10 +113,10 @@ const startServer = async () => {
         });
 
         if (deletedPrivate > 0 || deletedGroup > 0) {
-          console.log(`🧹 Retention Policy: Deleted ${deletedPrivate} private and ${deletedGroup} group messages older than 6 months.`);
+          logger.info(`🧹 Retention Policy: Deleted ${deletedPrivate} private and ${deletedGroup} group messages older than 6 months.`);
         }
       } catch (err) {
-        console.error('❌ Retention Cleanup Failed:', err);
+        logger.error('❌ Retention Cleanup Failed:', err);
       }
     };
 

@@ -9,8 +9,8 @@ const DERIVED_ALGO = 'AES-GCM';
 const DERIVED_KEY_SIZE = 256;
 
 // Utility to convert ArrayBuffer to Base64 (Robust version)
-export const bufferToBase64 = (buffer: ArrayBuffer): string => {
-  const bytes = new Uint8Array(buffer);
+export const bufferToBase64 = (buffer: ArrayBuffer | Uint8Array): string => {
+  const bytes = buffer instanceof Uint8Array ? buffer : new Uint8Array(buffer);
   let binary = '';
   for (let i = 0; i < bytes.byteLength; i++) {
     binary += String.fromCharCode(bytes[i]);
@@ -90,42 +90,46 @@ export const deriveSharedKey = async (
   myPrivateKey: CryptoKey,
   peerPublicKey: CryptoKey
 ): Promise<CryptoKey> => {
-  // Step A: Derive raw shared secret bits from ECDH
-  const sharedSecretBits = await window.crypto.subtle.deriveBits(
-    {
-      name: 'ECDH',
-      public: peerPublicKey,
-    },
-    myPrivateKey,
-    256
-  );
+  try {
+    // Step A: Derive raw shared secret bits from ECDH
+    const sharedSecretBits = await window.crypto.subtle.deriveBits(
+      {
+        name: 'ECDH',
+        public: peerPublicKey,
+      },
+      myPrivateKey,
+      256
+    );
 
-  // Step B: Import the bits as a HKDF base key
-  const hkdfKey = await window.crypto.subtle.importKey(
-    'raw',
-    sharedSecretBits,
-    { name: 'HKDF' },
-    false,
-    ['deriveKey']
-  );
+    // Step B: Import the bits as a HKDF base key
+    const hkdfKey = await window.crypto.subtle.importKey(
+      'raw',
+      sharedSecretBits,
+      { name: 'HKDF' },
+      false, // HKDF key doesn't need to be extractable
+      ['deriveKey']
+    );
 
-  // Step C: Derive the final AES-GCM key using HKDF
-  // We use a fixed 'info' string to ensure both sides produce the same key
-  return await window.crypto.subtle.deriveKey(
-    {
-      name: 'HKDF',
-      salt: new Uint8Array(16), // Fixed salt
-      info: new TextEncoder().encode('E2EE_CHAT_V1'),
-      hash: 'SHA-256',
-    },
-    hkdfKey,
-    {
-      name: 'AES-GCM',
-      length: 256,
-    },
-    true, // extractable for fingerprinting
-    ['encrypt', 'decrypt']
-  );
+    // Step C: Derive the final AES-GCM key using HKDF
+    return await window.crypto.subtle.deriveKey(
+      {
+        name: 'HKDF',
+        salt: new Uint8Array(16), // Fixed salt
+        info: new TextEncoder().encode('E2EE_CHAT_V1'),
+        hash: 'SHA-256',
+      },
+      hkdfKey,
+      {
+        name: 'AES-GCM',
+        length: 256,
+      },
+      true, // MUST be extractable for fingerprinting
+      ['encrypt', 'decrypt']
+    );
+  } catch (err) {
+    console.error('❌ [CRYPTO] deriveSharedKey failed:', err);
+    throw err;
+  }
 };
 
 // 5. Encrypt Message
@@ -307,7 +311,7 @@ export const encryptGroupKey = async (
 
   return {
     cipherText: bufferToBase64(encryptedBuffer),
-    iv: bufferToBase64(iv),
+    iv: bufferToBase64(iv.buffer),
   };
 };
 

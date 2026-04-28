@@ -25,7 +25,7 @@ GroupMessage.init(
       allowNull: false,
     },
     content: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT('medium'),
       allowNull: false,
     },
     timestamp: {

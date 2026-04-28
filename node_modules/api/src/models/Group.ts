@@ -4,6 +4,7 @@ import sequelize from '../config/db';
 class Group extends Model {
   public id!: string;
   public name!: string;
+  public description!: string | null;
   public creatorUsername!: string;
 }
 
@@ -17,6 +18,10 @@ Group.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     creatorUsername: {
       type: DataTypes.STRING,

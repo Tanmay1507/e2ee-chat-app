@@ -45,6 +45,7 @@ interface ChatWindowProps {
   onRemoveMember: (groupId: string, username: string) => Promise<boolean>;
   onAddMember: (groupId: string, username: string) => Promise<boolean>;
   onUpdateMemberRole: (groupId: string, username: string, role: 'admin' | 'member') => Promise<boolean>;
+  onDeleteGroup?: (groupId: string) => Promise<boolean>;
   onReact?: (msgId: string, emoji: string) => void;
 }
 
@@ -69,6 +70,7 @@ export default function ChatWindow({
   onRemoveMember,
   onAddMember,
   onUpdateMemberRole,
+  onDeleteGroup,
   onReact
 }: ChatWindowProps) {
   const [isManageMembersOpen, setIsManageMembersOpen] = useState(false);
@@ -304,6 +306,7 @@ export default function ChatWindow({
             onRemoveMember={onRemoveMember}
             onAddMember={onAddMember}
             onUpdateMemberRole={onUpdateMemberRole}
+            onDeleteGroup={onDeleteGroup}
             allUsers={users}
           />
         )}

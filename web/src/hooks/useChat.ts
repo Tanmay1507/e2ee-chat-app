@@ -85,6 +85,7 @@ export const useChat = (username: string | null, selectedUserUsername: string | 
     securityWarning,
     unreadCounts,
     typingUsers,
-    updateMemberRole // Added this although it wasn't in the original return, it was in the code
+    updateMemberRole,
+    deleteGroup
   };
 };

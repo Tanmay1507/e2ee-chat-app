@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useChat } from '@/hooks/useChat';
 import { Send, User as UserIcon, Lock, ShieldCheck, Plus, Search, X, Users, MessageSquare, Trash2, Pencil } from 'lucide-react';
 import CreateGroupModal from '@/components/CreateGroupModal';
+import ProfileModal from '@/components/ProfileModal';
 import Sidebar from '@/components/chat/Sidebar';
 import ChatWindow from '@/components/chat/ChatWindow';
 
@@ -15,6 +16,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isGroupModalOpen, setIsGroupModalOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const { 
@@ -135,6 +137,7 @@ export default function Home() {
           unreadCounts={unreadCounts}
           onLogout={handleLogout}
           onOpenGroupModal={() => setIsGroupModalOpen(true)}
+          onOpenProfile={() => setIsProfileOpen(true)}
           isSearchOpen={isSearchOpen}
           onToggleSearch={() => setIsSearchOpen(!isSearchOpen)}
           searchQuery={searchQuery}
@@ -181,6 +184,13 @@ export default function Home() {
           }}
         />
       )}
+
+      <ProfileModal 
+        isOpen={isProfileOpen} 
+        onClose={() => setIsProfileOpen(false)} 
+        username={username}
+        user={users.find(u => u.username.toLowerCase() === username.toLowerCase())}
+      />
     </main>
   );
 }
